@@ -1,0 +1,16 @@
+.registration-page {
+  .registration-form {
+    .row {
+      padding-top: 1%;
+      /*padding-bottom: 2%;*/
+    }
+    .glyphicon.glyphicon-asterisk {
+      color: red;
+      font-size: 50%;
+      top: -4px;
+    }
+  }
+  .error {
+    color: crimson;
+  }
+}

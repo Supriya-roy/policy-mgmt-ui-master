@@ -1,0 +1,42 @@
+<br>
+<div class="row">
+  <div class="col-sm-4">Available Policies</div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-2">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Policy Name</th>
+          <th>Policy Details</th>
+          <th *ngIf="loggedInUser.role==='admin'"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let policy of policies; let counter = index"  >
+          <td>{{counter+1}}</td>
+          <td>
+            <span *ngIf="!policy.isBeingEdited">{{policy.policyName}}</span>
+            <span *ngIf="policy.isBeingEdited">
+              <input type="text" name="policyName" [(ngModel)]="policy.policyName"/>
+            </span>
+          </td>
+          <td>
+            <span *ngIf="!policy.isBeingEdited">{{policy.policyDetails}}</span>
+            <span *ngIf="policy.isBeingEdited">
+              <input type="text" name="policyDetails" [(ngModel)]="policy.policyDetails"/>
+            </span>
+          </td>
+          <td *ngIf="loggedInUser.role==='admin'">
+            <span *ngIf="!policy.isBeingEdited"><a (click)="editPolicy(policy)"><u>Edit</u></a></span>
+            <span *ngIf="policy.isBeingEdited"><a (click)="savePolicy(policy)"><u>Save</u></a></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

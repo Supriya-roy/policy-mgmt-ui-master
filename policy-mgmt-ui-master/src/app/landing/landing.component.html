@@ -1,0 +1,23 @@
+<div class="row" >
+  <div class="col-sm-2 col-sm-offset-10">
+    <a [routerLink]="['/']" ><u>Logout</u></a>
+  </div>
+</div>
+<div class="row" >
+  <div class="col-sm-2" >
+    Welcome
+  </div>
+  <div class="col-sm-2" >
+    {{currentUser.userName}}
+  </div>
+</div>
+<section *ngIf="editedPolicy">
+  Policy Number {{editedPolicy.policyNumber}} {{editedPolicy.policyUpdateMsg}}
+</section>
+
+<app-all-policies (policyEdited)="policyEdited($event)"></app-all-policies>
+
+<div *ngIf="currentUser.role==='user'" >
+  <app-user-policies></app-user-policies>
+</div>
+

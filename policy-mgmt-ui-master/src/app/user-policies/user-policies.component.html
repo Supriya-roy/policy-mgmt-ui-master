@@ -1,0 +1,28 @@
+<br>
+<div class="row">
+  <div class="col-sm-2">{{loggedInUser.userName}}</div>
+  <div class="col-sm-2">Policy Details</div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Policy No</th>
+            <th>Policy Name</th>
+            <th>Amount Paid</th>
+            <th>Policy End Date</th>
+            <th>Valid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let policy of loggedInUser.policies" app-user-policy-child [currentPolicy]=policy>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
